@@ -1,0 +1,13 @@
+.gradle
+out
+target
+
+ 
+
+# Intellij project files
+.iws
+.idea
+.shelf
+*.iml
+
+
