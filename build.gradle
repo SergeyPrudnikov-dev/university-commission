@@ -8,23 +8,34 @@
 
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
-    id 'application'
+     id 'application'
 }
 
-repositories {
-    // Use JCenter for resolving dependencies.
-    jcenter()
+task message1 {
+	doLast{
+		println info + " " + projectName
+	}
 }
 
-dependencies {
-    // Use JUnit test framework.
-    testImplementation 'junit:junit:4.13'
-
-    // This dependency is used by the application.
-    implementation 'com.google.guava:guava:29.0-jre'
+task message2 {
+	doLast{
+		println "Message from task"
+	}
 }
 
-application {
-    // Define the main class for the application.
-    mainClass = 'university.commission.App'
+task message3 {
+    doFirst {
+       println myArg
+    }
 }
+
+/*
+ * gradle message3 -PmyArg="Message from console!"
+ */
+
+task allMessages (dependsOn: [ message1, message2, message3])
+
+
+/*
+ *  gradle allMessages -PmyArg="Message from console!"
+ */
