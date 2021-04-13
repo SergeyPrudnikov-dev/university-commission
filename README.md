@@ -1,1 +1,6 @@
-Task 1: сделать коммит локально и потом пуш в github
+## Running the Application
+
+ 
+Go to the project root and run 
+
+gradle run

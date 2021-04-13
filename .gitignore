@@ -1,7 +1,8 @@
 .gradle
 out
 target
-
+bin
+build
  
 
 # Intellij project files
@@ -9,5 +10,6 @@ target
 .idea
 .shelf
 *.iml
+.class
 
 
