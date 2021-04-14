@@ -11,6 +11,8 @@ plugins {
      id 'application'
 }
 
+mainClassName = "com.epam.university.commission.Application"
+
 task message1 {
 	doLast{
 		println info + " " + projectName
