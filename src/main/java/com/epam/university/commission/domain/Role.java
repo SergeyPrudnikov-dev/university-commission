@@ -14,7 +14,7 @@ public enum Role {
     ENTRANT("role.entrant"),
     STUDENT("role.student"), // this role for example (not implemented at this stage)
     CURATOR("role.curator"); // this role for example (not implemented at this stage)
-    
+
     private String name;
 
     private Role(String name) {
@@ -24,7 +24,7 @@ public enum Role {
     public String getName() {
         return name;
     }
-    
+
     public Long getId() {
         return Long.valueOf(ordinal());
     }

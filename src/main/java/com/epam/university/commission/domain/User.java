@@ -12,9 +12,9 @@ package com.epam.university.commission.domain;
 public class User extends Entity {
 
     private static final long serialVersionUID = 5881422459102994885L;
+    private Role role;
     private String login;
     private String password;
-    private Role role;
     private String email;
 
     public String getLogin() {

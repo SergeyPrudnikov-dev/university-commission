@@ -48,5 +48,4 @@ abstract public class Entity implements Serializable {
             return false;
         return true;
     }
-
 }
