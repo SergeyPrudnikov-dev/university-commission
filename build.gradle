@@ -8,36 +8,55 @@
 
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
-     id 'application'
+    id 'java'
+    id 'application'
+}
+
+group 'university-commission'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    maven { url 'http://insecure.repo1.maven.org/maven2/' }
+    mavenCentral()
+    jcenter()
+    google()
+}
+
+dependencies {
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.7.0'
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.0")
+}
+
+test {
+    useJUnitPlatform()
 }
 
 mainClassName = "com.epam.university.commission.Application"
 
 task message1 {
-	doLast{
-		println info + " " + projectName
-	}
+    doLast {
+        println info + " " + projectName
+    }
 }
 
 task message2 {
-	doLast{
-		println "Message from task"
-	}
+    doLast {
+        println "Message from task"
+    }
 }
 
 task message3 {
     doFirst {
-       println myArg
+        println myArg
     }
 }
-
 /*
  * gradle message3 -PmyArg="Message from console!"
  */
 
-task allMessages (dependsOn: [ message1, message2, message3])
-
-
+task allMessages(dependsOn: [message1, message2, message3])
 /*
  *  gradle allMessages -PmyArg="Message from console!"
  */

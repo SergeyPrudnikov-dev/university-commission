@@ -15,16 +15,16 @@ import java.util.Date;
 public class StatementByEntrant extends Entity {
 
     private static final long serialVersionUID = -6271859875463148364L;
+    private Faculty faculty;
+    private Date date;
     private String lastName;
     private String firstName;
     private String patronymic;
     private String passportId;
-    private Faculty faculty;
     private int certificateScore;
     private int subjectScore1;
     private int subjectScore2;
     private int subjectScore3;
-    private Date date;
     private long userId;
 
     public String getLastName() {

@@ -11,7 +11,6 @@ package com.epam.university.commission.domain;
  */
 public class Faculty extends Entity {
 
-
     private static final long serialVersionUID = -5654502854474146353L;
     private String name;
     private int recruitment_plan;
