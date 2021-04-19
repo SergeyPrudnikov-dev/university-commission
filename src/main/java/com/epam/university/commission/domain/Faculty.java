@@ -1,5 +1,7 @@
 package com.epam.university.commission.domain;
 
+import java.util.Objects;
+
 /**
  * This class describes the faculties at the university.
  * <p/>
@@ -13,12 +15,15 @@ public class Faculty extends Entity {
 
     private static final long serialVersionUID = -5654502854474146353L;
     private String name;
-    private int recruitment_plan;
+    private int recruitmentPlan;
     private String certificate;
-    private String subject_1;
-    private String subject_2;
-    private String subject_3;
+    private String subject1;
+    private String subject2;
+    private String subject3;
 
+    /**
+     * Constructor without parameters.
+     */
     public Faculty() {
     }
 
@@ -30,12 +35,12 @@ public class Faculty extends Entity {
         this.name = name;
     }
 
-    public int getRecruitment_plan() {
-        return recruitment_plan;
+    public int getRecruitmentPlan() {
+        return recruitmentPlan;
     }
 
-    public void setRecruitment_plan(int recruitment_plan) {
-        this.recruitment_plan = recruitment_plan;
+    public void setRecruitmentPlan(int recruitmentPlan) {
+        this.recruitmentPlan = recruitmentPlan;
     }
 
     public String getCertificate() {
@@ -46,85 +51,56 @@ public class Faculty extends Entity {
         this.certificate = certificate;
     }
 
-    public String getSubject_1() {
-        return subject_1;
+    public String getSubject1() {
+        return subject1;
     }
 
-    public void setSubject_1(String subject_1) {
-        this.subject_1 = subject_1;
+    public void setSubject1(String subject1) {
+        this.subject1 = subject1;
     }
 
-    public String getSubject_2() {
-        return subject_2;
+    public String getSubject2() {
+        return subject2;
     }
 
-    public void setSubject_2(String subject_2) {
-        this.subject_2 = subject_2;
+    public void setSubject2(String subject2) {
+        this.subject2 = subject2;
     }
 
-    public String getSubject_3() {
-        return subject_3;
+    public String getSubject3() {
+        return subject3;
     }
 
-    public void setSubject_3(String subject_3) {
-        this.subject_3 = subject_3;
+    public void setSubject3(String subject3) {
+        this.subject3 = subject3;
     }
 
     @Override
     public String toString() {
-        return "Faculty [name=" + name + ", recruitment_plan=" + recruitment_plan + ", certificate=" + certificate
-                + ", subject_1=" + subject_1 + ", subject_2=" + subject_2 + ", subject_3=" + subject_3 + "]";
+        return "Faculty [name=" + name + ", recruitment_plan=" + recruitmentPlan + ", certificate=" + certificate +
+                ", subject_1=" + subject1 + ", subject_2=" + subject2 + ", subject_3=" + subject3 + "]";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Faculty)) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        Faculty faculty = (Faculty) o;
+        return getRecruitmentPlan() == faculty.getRecruitmentPlan() && getName().equals(faculty.getName())
+                && getCertificate().equals(faculty.getCertificate()) && getSubject1().equals(faculty.getSubject1())
+                && getSubject2().equals(faculty.getSubject2()) && getSubject3().equals(faculty.getSubject3());
     }
 
     @Override
     public int hashCode() {
-        final int prime = 31;
-        int result = super.hashCode();
-        result = prime * result + ((certificate == null) ? 0 : certificate.hashCode());
-        result = prime * result + ((name == null) ? 0 : name.hashCode());
-        result = prime * result + recruitment_plan;
-        result = prime * result + ((subject_1 == null) ? 0 : subject_1.hashCode());
-        result = prime * result + ((subject_2 == null) ? 0 : subject_2.hashCode());
-        result = prime * result + ((subject_3 == null) ? 0 : subject_3.hashCode());
-        return result;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (!super.equals(obj))
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Faculty other = (Faculty) obj;
-        if (certificate == null) {
-            if (other.certificate != null)
-                return false;
-        } else if (!certificate.equals(other.certificate))
-            return false;
-        if (name == null) {
-            if (other.name != null)
-                return false;
-        } else if (!name.equals(other.name))
-            return false;
-        if (recruitment_plan != other.recruitment_plan)
-            return false;
-        if (subject_1 == null) {
-            if (other.subject_1 != null)
-                return false;
-        } else if (!subject_1.equals(other.subject_1))
-            return false;
-        if (subject_2 == null) {
-            if (other.subject_2 != null)
-                return false;
-        } else if (!subject_2.equals(other.subject_2))
-            return false;
-        if (subject_3 == null) {
-            if (other.subject_3 != null)
-                return false;
-        } else if (!subject_3.equals(other.subject_3))
-            return false;
-        return true;
+        return Objects.hash(super.hashCode(), getName(), getRecruitmentPlan(), getCertificate(), getSubject1(),
+                getSubject2(), getSubject3());
     }
 }

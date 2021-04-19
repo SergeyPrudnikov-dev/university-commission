@@ -10,6 +10,28 @@ plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'java'
     id 'application'
+    id 'checkstyle'
+}
+
+checkstyle {
+    toolVersion '6.1.1'
+    configDir = file("$rootProject.projectDir/tools/codeanalysis/")
+}
+
+checkstyleMain {
+    source = 'src/main/java'
+}
+
+checkstyleTest {
+    source = 'src/test/java'
+}
+
+tasks.withType(Checkstyle) {
+    reports {
+        xml.enabled false
+        html.enabled true
+        html.stylesheet resources.text.fromFile('tools/codeanalysis/checkstyle-custom.xsl')
+    }
 }
 
 group 'university-commission'
@@ -24,13 +46,14 @@ repositories {
     google()
 }
 
+test {
+    useJUnitPlatform()
+}
+
 dependencies {
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.7.0'
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.0")
-}
-
-test {
-    useJUnitPlatform()
+    implementation group: 'com.puppycrawl.tools', name: 'checkstyle', version: '6.1.1'
 }
 
 mainClassName = "com.epam.university.commission.Application"

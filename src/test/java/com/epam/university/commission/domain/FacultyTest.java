@@ -42,11 +42,11 @@ public class FacultyTest {
     public void setUp() {
         expectedFaculty = new Faculty();
         expectedFaculty.setName(EXPECTED_NAME);
-        expectedFaculty.setRecruitment_plan(EXPECTED_RECRUITMENT_PLAN);
+        expectedFaculty.setRecruitmentPlan(EXPECTED_RECRUITMENT_PLAN);
         expectedFaculty.setCertificate(EXPECTED_CERTIFICATE);
-        expectedFaculty.setSubject_1(EXPECTED_SUBJECT_1);
-        expectedFaculty.setSubject_2(EXPECTED_SUBJECT_2);
-        expectedFaculty.setSubject_3(EXPECTED_SUBJECT_3);
+        expectedFaculty.setSubject1(EXPECTED_SUBJECT_1);
+        expectedFaculty.setSubject2(EXPECTED_SUBJECT_2);
+        expectedFaculty.setSubject3(EXPECTED_SUBJECT_3);
         expectedFaculty.setId(EXPECTED_ID);
     }
 
@@ -54,11 +54,11 @@ public class FacultyTest {
     public void testEqualityOfTheDifferentFaculty() {
         Faculty faculty = new Faculty();
         faculty.setName(OTHER_NAME);
-        faculty.setRecruitment_plan(OTHER_RECRUITMENT_PLAN);
+        faculty.setRecruitmentPlan(OTHER_RECRUITMENT_PLAN);
         faculty.setCertificate(OTHER_CERTIFICATE);
-        faculty.setSubject_1(OTHER_SUBJECT_1);
-        faculty.setSubject_2(OTHER_SUBJECT_2);
-        faculty.setSubject_3(OTHER_SUBJECT_3);
+        faculty.setSubject1(OTHER_SUBJECT_1);
+        faculty.setSubject2(OTHER_SUBJECT_2);
+        faculty.setSubject3(OTHER_SUBJECT_3);
         faculty.setId(OTHER_ID);
         assertNotEquals(expectedFaculty, faculty);
     }
@@ -67,11 +67,11 @@ public class FacultyTest {
     public void testEqualityOfTheSameFaculty() {
         Faculty faculty = new Faculty();
         faculty.setName(EXPECTED_NAME);
-        faculty.setRecruitment_plan(EXPECTED_RECRUITMENT_PLAN);
+        faculty.setRecruitmentPlan(EXPECTED_RECRUITMENT_PLAN);
         faculty.setCertificate(EXPECTED_CERTIFICATE);
-        faculty.setSubject_1(EXPECTED_SUBJECT_1);
-        faculty.setSubject_2(EXPECTED_SUBJECT_2);
-        faculty.setSubject_3(EXPECTED_SUBJECT_3);
+        faculty.setSubject1(EXPECTED_SUBJECT_1);
+        faculty.setSubject2(EXPECTED_SUBJECT_2);
+        faculty.setSubject3(EXPECTED_SUBJECT_3);
         faculty.setId(EXPECTED_ID);
         assertEquals(expectedFaculty, faculty);
     }

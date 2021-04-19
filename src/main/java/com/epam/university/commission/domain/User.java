@@ -1,5 +1,7 @@
 package com.epam.university.commission.domain;
 
+import java.util.Objects;
+
 /**
  * The data of this class is used to log into the application.
  * <p/>
@@ -55,42 +57,23 @@ public class User extends Entity {
     }
 
     @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = super.hashCode();
-        result = prime * result + ((email == null) ? 0 : email.hashCode());
-        result = prime * result + ((login == null) ? 0 : login.hashCode());
-        result = prime * result + ((password == null) ? 0 : password.hashCode());
-        result = prime * result + ((role == null) ? 0 : role.hashCode());
-        return result;
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof User)) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        User user = (User) o;
+        return getRole() == user.getRole() && getLogin().equals(user.getLogin())
+                && getPassword().equals(user.getPassword()) && getEmail().equals(user.getEmail());
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (!super.equals(obj))
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        User other = (User) obj;
-        if (email == null) {
-            if (other.email != null)
-                return false;
-        } else if (!email.equals(other.email))
-            return false;
-        if (login == null) {
-            if (other.login != null)
-                return false;
-        } else if (!login.equals(other.login))
-            return false;
-        if (password == null) {
-            if (other.password != null)
-                return false;
-        } else if (!password.equals(other.password))
-            return false;
-        if (role != other.role)
-            return false;
-        return true;
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getRole(), getLogin(), getPassword(), getEmail());
     }
 }

@@ -10,7 +10,12 @@ package com.epam.university.commission;
  * @author Siarhei Prudnikau1
  */
 public class Application {
+    private Application() {
+    }
+    /**
+     * @param args (dummy)
+     */
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+       // System.out.println("Hello World!");
     }
 }
