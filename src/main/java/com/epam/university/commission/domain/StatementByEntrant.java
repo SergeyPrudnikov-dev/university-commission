@@ -101,11 +101,11 @@ public class StatementByEntrant extends Entity {
     }
 
     public Date getDate() {
-        return date;
+        return date != null ? new Date(date.getTime()) : null;
     }
 
     public void setDate(Date date) {
-        this.date = date;
+        this.date = date != null ? new Date(date.getTime()) : null;
     }
 
     public long getUserId() {
@@ -118,10 +118,10 @@ public class StatementByEntrant extends Entity {
 
     @Override
     public String toString() {
-        return "StatementByEntrant [lastName=" + lastName + ", firstName=" + firstName + ", patronymic=" + patronymic +
-                ", passportId=" + passportId + ", faculty=" + faculty + ", certificateScore=" + certificateScore +
-                ", subjectScore1=" + subjectScore1 + ", subjectScore2=" + subjectScore2 + ", subjectScore3=" +
-                subjectScore3 + ", date=" + date + ", userId=" + userId + "]";
+        return "StatementByEntrant [lastName=" + lastName + ", firstName=" + firstName + ", patronymic=" +
+                patronymic + ", passportId=" + passportId + ", faculty=" + faculty + ", certificateScore=" +
+                certificateScore + ", subjectScore1=" + subjectScore1 + ", subjectScore2=" + subjectScore2 +
+                ", subjectScore3=" + subjectScore3 + ", date=" + date + ", userId=" + userId + "]";
     }
 
     @Override

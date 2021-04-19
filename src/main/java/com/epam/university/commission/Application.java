@@ -12,10 +12,10 @@ package com.epam.university.commission;
 public class Application {
     private Application() {
     }
+
     /**
      * @param args (dummy)
      */
     public static void main(String[] args) {
-       // System.out.println("Hello World!");
     }
 }
