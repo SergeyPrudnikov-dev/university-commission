@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE suppressions PUBLIC
+    "-//Puppy Crawl//DTD Suppressions 1.1//EN"
+    "http://www.puppycrawl.com/dtds/suppressions_1_1.dtd">
+
+<suppressions>
+
+    <!-- ************** -->
+    <!-- Generated Code -->
+    <!-- ************** -->
+
+    <suppress checks="FileLength"               files="src[/\\]main[/\\]java[/\\].*[/\\]gen[/\\].*"/>
+    <suppress checks="VisibilityModifier"       files="src[/\\]main[/\\]java[/\\].*[/\\]gen[/\\].*"/>
+    <suppress checks="ImportOrder"              files="src[/\\]main[/\\]java[/\\].*[/\\]gen[/\\].*"/>
+    <suppress checks="RedundantImport"          files="src[/\\]main[/\\]java[/\\].*[/\\]gen[/\\].*"/>
+    <suppress checks="JavadocMethod"            files="src[/\\]main[/\\]java[/\\].*[/\\]gen[/\\].*"/>
+    <suppress checks="JavadocStyle"             files="src[/\\]main[/\\]java[/\\].*[/\\]gen[/\\].*"/>
+    <suppress checks="JavadocType"              files="src[/\\]main[/\\]java[/\\].*[/\\]gen[/\\].*"/>
+    <suppress checks="JavadocVariable"          files="src[/\\]main[/\\]java[/\\].*[/\\]gen[/\\].*"/>
+    <suppress checks="ExecutableStatementCount" files="src[/\\]main[/\\]java[/\\].*[/\\]gen[/\\].*"/>
+    <suppress checks="LineLength"               files="src[/\\]main[/\\]java[/\\].*[/\\]gen[/\\].*"/>
+
+
+    <!-- ***** -->
+    <!-- Tests -->
+    <!-- ***** -->
+
+    <suppress checks="MagicNumber"              files="src[/\\]test[a-zA-Z]*[/\\]java[/\\].*"/>
+    <suppress checks="JavadocMethod"            files="src[/\\]test[a-zA-Z]*[/\\]java[/\\].*"/>
+    <suppress checks="ExecutableStatementCount" files="src[/\\]test[a-zA-Z]*[/\\]java[/\\].*"/>
+    <suppress checks="MethodLength"             files="src[/\\]test[a-zA-Z]*[/\\]java[/\\].*"/>
+
+    <!-- JUnit Rule fields must be public -->
+    <suppress checks="VisibilityModifier"       files="src[/\\]test[a-zA-Z]*[/\\]java[/\\].*Test.java"/>
+</suppressions>

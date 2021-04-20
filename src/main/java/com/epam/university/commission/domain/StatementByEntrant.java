@@ -1,6 +1,7 @@
 package com.epam.university.commission.domain;
 
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * "StatementByEntrant" is an application (questionnaire) of an entrant for applying to
@@ -100,11 +101,11 @@ public class StatementByEntrant extends Entity {
     }
 
     public Date getDate() {
-        return date;
+        return date != null ? new Date(date.getTime()) : null;
     }
 
     public void setDate(Date date) {
-        this.date = date;
+        this.date = date != null ? new Date(date.getTime()) : null;
     }
 
     public long getUserId() {
@@ -117,79 +118,36 @@ public class StatementByEntrant extends Entity {
 
     @Override
     public String toString() {
-        return "StatementByEntrant [lastName=" + lastName + ", firstName=" + firstName + ", patronymic=" + patronymic
-                + ", passportId=" + passportId + ", faculty=" + faculty + ", certificateScore=" + certificateScore
-                + ", subjectScore1=" + subjectScore1 + ", subjectScore2=" + subjectScore2 + ", subjectScore3="
-                + subjectScore3 + ", date=" + date + ", userId=" + userId + "]";
+        return "StatementByEntrant [lastName=" + lastName + ", firstName=" + firstName + ", patronymic=" +
+                patronymic + ", passportId=" + passportId + ", faculty=" + faculty + ", certificateScore=" +
+                certificateScore + ", subjectScore1=" + subjectScore1 + ", subjectScore2=" + subjectScore2 +
+                ", subjectScore3=" + subjectScore3 + ", date=" + date + ", userId=" + userId + "]";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof StatementByEntrant)) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        StatementByEntrant that = (StatementByEntrant) o;
+        return getCertificateScore() == that.getCertificateScore() && getSubjectScore1() == that.getSubjectScore1()
+                && getSubjectScore2() == that.getSubjectScore2() && getSubjectScore3() == that.getSubjectScore3()
+                && getUserId() == that.getUserId() && getFaculty().equals(that.getFaculty())
+                && getDate().equals(that.getDate()) && getLastName().equals(that.getLastName())
+                && getFirstName().equals(that.getFirstName()) && getPatronymic().equals(that.getPatronymic())
+                && getPassportId().equals(that.getPassportId());
     }
 
     @Override
     public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + certificateScore;
-        result = prime * result + ((date == null) ? 0 : date.hashCode());
-        result = prime * result + ((faculty == null) ? 0 : faculty.hashCode());
-        result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
-        result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
-        result = prime * result + ((passportId == null) ? 0 : passportId.hashCode());
-        result = prime * result + ((patronymic == null) ? 0 : patronymic.hashCode());
-        result = prime * result + subjectScore1;
-        result = prime * result + subjectScore2;
-        result = prime * result + subjectScore3;
-        result = prime * result + (int) (userId ^ (userId >>> 32));
-        return result;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        StatementByEntrant other = (StatementByEntrant) obj;
-        if (certificateScore != other.certificateScore)
-            return false;
-        if (date == null) {
-            if (other.date != null)
-                return false;
-        } else if (!date.equals(other.date))
-            return false;
-        if (faculty == null) {
-            if (other.faculty != null)
-                return false;
-        } else if (!faculty.equals(other.faculty))
-            return false;
-        if (firstName == null) {
-            if (other.firstName != null)
-                return false;
-        } else if (!firstName.equals(other.firstName))
-            return false;
-        if (lastName == null) {
-            if (other.lastName != null)
-                return false;
-        } else if (!lastName.equals(other.lastName))
-            return false;
-        if (passportId == null) {
-            if (other.passportId != null)
-                return false;
-        } else if (!passportId.equals(other.passportId))
-            return false;
-        if (patronymic == null) {
-            if (other.patronymic != null)
-                return false;
-        } else if (!patronymic.equals(other.patronymic))
-            return false;
-        if (subjectScore1 != other.subjectScore1)
-            return false;
-        if (subjectScore2 != other.subjectScore2)
-            return false;
-        if (subjectScore3 != other.subjectScore3)
-            return false;
-        if (userId != other.userId)
-            return false;
-        return true;
+        return Objects.hash(super.hashCode(), getFaculty(), getDate(), getLastName(), getFirstName(), getPatronymic()
+                , getPassportId(), getCertificateScore(), getSubjectScore1(), getSubjectScore2(), getSubjectScore3(),
+                getUserId());
     }
 }

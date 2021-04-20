@@ -10,10 +10,22 @@ package com.epam.university.commission.domain;
  * @author Siarhei Prudnikau1
  */
 public enum Role {
+    /**
+     * The administrator role corresponds to the maximum user rights (worker of university commission).
+     */
     ADMIN("role.admin"),
+    /**
+     * The ENTRANT corresponds to the user rights required to submit the application.
+     */
     ENTRANT("role.entrant"),
-    STUDENT("role.student"), // this role for example (not implemented at this stage)
-    CURATOR("role.curator"); // this role for example (not implemented at this stage)
+    /**
+     * this role for example (not implemented at this stage)
+     */
+    STUDENT("role.student"),
+    /**
+     * this role for example (not implemented at this stage)
+     */
+    CURATOR("role.curator");
 
     private String name;
 

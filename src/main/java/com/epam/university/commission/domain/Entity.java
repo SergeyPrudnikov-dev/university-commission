@@ -1,6 +1,7 @@
 package com.epam.university.commission.domain;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * Base class for entity classes.
@@ -11,7 +12,7 @@ import java.io.Serializable;
  *
  * @author Siarhei Prudnikau1
  */
-abstract public class Entity implements Serializable {
+public abstract class Entity implements Serializable {
 
     private static final long serialVersionUID = -754545940130075070L;
     private Long id;
@@ -25,27 +26,19 @@ abstract public class Entity implements Serializable {
     }
 
     @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
-        return result;
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Entity)) {
+            return false;
+        }
+        Entity entity = (Entity) o;
+        return getId().equals(entity.getId());
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Entity other = (Entity) obj;
-        if (id == null) {
-            if (other.id != null)
-                return false;
-        } else if (!id.equals(other.id))
-            return false;
-        return true;
+    public int hashCode() {
+        return Objects.hash(getId());
     }
 }
