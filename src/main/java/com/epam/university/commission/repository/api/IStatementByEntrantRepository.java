@@ -3,7 +3,7 @@ package com.epam.university.commission.repository.api;
 import com.epam.university.commission.domain.StatementByEntrant;
 
 /**
- * The interface extends ICrudRepository for StatementByEntrant entity.
+ * The interface extends ICrudRepository for {@link StatementByEntrant} entity.
  * <p/>
  * University-commission 2021  epam.com
  * <p/>
