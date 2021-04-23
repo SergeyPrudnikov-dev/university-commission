@@ -3,7 +3,7 @@ package com.epam.university.commission.service.api;
 import com.epam.university.commission.domain.Faculty;
 
 /**
- * This interface contains the basic methods of the service layer for Faculty entities.
+ * This interface contains the basic methods of the service layer for {@link Faculty} entities.
  * <p/>
  * University-commission 2021  epam.com
  * <p/>
