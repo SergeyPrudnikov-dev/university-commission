@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 /**
- * Test to verify the functionality of the {@link EnrolledPersonServiceImpl}.
+ * Test to verify the functionality of the {@link EnrolledPersonService}.
  * <p/>
  * University-commission 2021  epam.com
  * <p/>
@@ -37,7 +37,7 @@ class EnrolledPersonServiceImplTest {
     }
 
     @TestSubject
-    private EnrolledPersonServiceImpl enrolledPersonService = new EnrolledPersonServiceImpl();
+    private EnrolledPersonService enrolledPersonService = new EnrolledPersonService();
 
     @Mock
     private IEnrolledPersonRepository repository = createMock(IEnrolledPersonRepository.class);
