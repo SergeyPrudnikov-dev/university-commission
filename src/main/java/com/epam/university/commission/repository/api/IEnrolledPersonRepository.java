@@ -12,5 +12,4 @@ import com.epam.university.commission.domain.EnrolledPerson;
  * @author Siarhei Prudnikau1
  */
 public interface IEnrolledPersonRepository extends ICrudRepository<Long, EnrolledPerson> {
-
 }

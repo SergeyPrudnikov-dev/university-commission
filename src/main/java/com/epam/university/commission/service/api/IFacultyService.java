@@ -19,4 +19,18 @@ public interface IFacultyService {
      * @return Faculty - entity.
      */
     Faculty findById(Long id);
+
+    /**
+     * Saves an object with the given identifier.
+     *
+     * @param faculty of the entity.
+     */
+    void save(Faculty faculty);
+
+    /**
+     * Deletes an object with the given identifier.
+     *
+     * @param id of the entity.
+     */
+    void delete(Long id);
 }

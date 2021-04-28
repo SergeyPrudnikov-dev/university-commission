@@ -19,4 +19,18 @@ public interface IEnrolledPersonService {
      * @return EnrolledPerson - entity.
      */
     EnrolledPerson findById(Long id);
+
+    /**
+     * Saves an object with the given identifier.
+     *
+     * @param enrolledPerson of the entity.
+     */
+    void save(EnrolledPerson enrolledPerson);
+
+    /**
+     * Deletes an object with the given identifier.
+     *
+     * @param id of the entity.
+     */
+    void delete(Long id);
 }

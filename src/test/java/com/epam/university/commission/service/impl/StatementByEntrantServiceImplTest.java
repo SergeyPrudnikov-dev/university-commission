@@ -13,7 +13,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * Test to verify the functionality of the {@link StatementByEntrantServiceImpl}.
+ * Test to verify the functionality of the {@link StatementByEntrantService}.
  * <p/>
  * University-commission 2021  epam.com
  * <p/>
@@ -25,14 +25,14 @@ class StatementByEntrantServiceImplTest {
     private static final long STATEMENT_BY_ENTRANT_ID = 123;
     private StatementByEntrant testStatementByEntrant;
     private IStatementByEntrantRepository repository;
-    private StatementByEntrantServiceImpl statementByEntrantService;
+    private StatementByEntrantService statementByEntrantService;
 
     @BeforeEach
     void setUp() {
         testStatementByEntrant = new StatementByEntrant();
         testStatementByEntrant.setId(STATEMENT_BY_ENTRANT_ID);
         repository = createMock(IStatementByEntrantRepository.class);
-        statementByEntrantService = new StatementByEntrantServiceImpl();
+        statementByEntrantService = new StatementByEntrantService();
         statementByEntrantService.setStatementByEntrantRepository(repository);
     }
 

@@ -19,4 +19,18 @@ public interface IUserService {
      * @return User - entity.
      */
     User findById(Long id);
+
+    /**
+     * Saves an object with the given identifier.
+     *
+     * @param user of the entity.
+     */
+    void save(User user);
+
+    /**
+     * Deletes an object with the given identifier.
+     *
+     * @param id of the entity.
+     */
+    void delete(Long id);
 }

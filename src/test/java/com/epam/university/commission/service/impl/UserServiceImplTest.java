@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 /**
- * Test to verify the functionality of the {@link UserServiceImpl}.
+ * Test to verify the functionality of the {@link UserService}.
  * <p/>
  * University-commission 2021  epam.com
  * <p/>
@@ -37,7 +37,7 @@ class UserServiceImplTest {
     }
 
     @TestSubject
-    private UserServiceImpl userService = new UserServiceImpl();
+    private UserService userService = new UserService();
 
     @Mock
     private IUserRepository repository = createMock(IUserRepository.class);

@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 /**
- * Test to verify the functionality of the {@link FacultyServiceImpl}.
+ * Test to verify the functionality of the {@link FacultyService}.
  * <p/>
  * University-commission 2021  epam.com
  * <p/>
@@ -28,7 +28,7 @@ class FacultyServiceImplTest {
     private Faculty testFaculty;
     private IMocksControl control;
     private IFacultyRepository repository;
-    private FacultyServiceImpl facultyService;
+    private FacultyService facultyService;
 
     @BeforeEach
     void setUp() {
@@ -36,7 +36,7 @@ class FacultyServiceImplTest {
         testFaculty.setId(FACULTY_ID);
         control = createStrictControl();
         repository = control.createMock(IFacultyRepository.class);
-        facultyService = new FacultyServiceImpl();
+        facultyService = new FacultyService();
         facultyService.setFacultyRepository(repository);
     }
 

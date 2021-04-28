@@ -19,4 +19,18 @@ public interface IStatementByEntrantService {
      * @return StatementByEntrant - entity.
      */
     StatementByEntrant findById(Long id);
+
+    /**
+     * Saves an object with the given identifier.
+     *
+     * @param statementByEntrant of the entity.
+     */
+    void save(StatementByEntrant statementByEntrant);
+
+    /**
+     * Deletes an object with the given identifier.
+     *
+     * @param id of the entity.
+     */
+    void delete(Long id);
 }
