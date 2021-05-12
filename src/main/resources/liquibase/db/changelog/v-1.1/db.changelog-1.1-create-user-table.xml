@@ -8,7 +8,7 @@
     <changeSet id="2021-05-06-00" author="Siarhei Prudnikau (siarhei_prudnikau1@epam.com)">
         <comment>Create table 'user'.</comment>
         <createTable tableName="user">
-            <column name="id" type="int">
+            <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="login" type="varchar(50)">
@@ -30,13 +30,14 @@
     </changeSet>
 
     <changeSet id="2021-05-07-00" author="Siarhei Prudnikau (siarhei_prudnikau1@epam.com)">
-        <addUniqueConstraint columnNames="id, login, email"
-                             tableName="user"/>
+        <addUniqueConstraint
+                columnNames="id, login, email"
+                tableName="user"/>
     </changeSet>
 
     <changeSet id="2021-05-07-01" author="Siarhei Prudnikau (siarhei_prudnikau1@epam.com)">
         <addAutoIncrement
-                columnDataType="int"
+                columnDataType="bigint"
                 columnName="id"
                 incrementBy="1"
                 startWith="1"
