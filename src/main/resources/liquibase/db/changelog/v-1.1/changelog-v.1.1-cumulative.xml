@@ -10,4 +10,11 @@
     </changeSet>
 
     <include file="src/main/resources/liquibase/db/changelog/v-1.1/db.changelog-1.1-create-user-table.xml"/>
+    <include file="src/main/resources/liquibase/db/changelog/v-1.1/db.changelog-1.1-create-faculty-table.xml"/>
+    <include file="src/main/resources/liquibase/db/changelog/v-1.1/db.changelog-1.1-create-statement-table.xml"/>
+    <include file="src/main/resources/liquibase/db/changelog/v-1.1/db.changelog-1.1-create-enrolled-person-table.xml"/>
+
+    <changeSet id="2021-05-12-00" author="Siarhei Prudnikau (siarhei_prudnikau1@epam.com)">
+        <tagDatabase tag="created-tables:faculty, statement, enrolled-person"/>
+    </changeSet>
 </databaseChangeLog>
