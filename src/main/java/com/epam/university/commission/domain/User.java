@@ -12,7 +12,6 @@ import java.util.Objects;
  * @author Siarhei Prudnikau1
  */
 public class User extends Entity {
-
     private static final long serialVersionUID = 5881422459102994885L;
     private Role role;
     private String login;
@@ -53,7 +52,8 @@ public class User extends Entity {
 
     @Override
     public String toString() {
-        return "User [login=" + login + ", password=" + password + ", role=" + role + ", email=" + email + "]";
+        return "User [id =" + this.getId() + ", login=" + login + ", password=" + password + ", role=" + role +
+                ", email=" + email + "]";
     }
 
     @Override

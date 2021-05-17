@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+        'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+
+<mapper namespace='com.epam.university.commission.mappers.IUserMapper'>
+    <resultMap type='User' id='UserResult'>
+        <id property='id' column='id'/>
+        <result property='login' column='login'/>
+        <result property='password' column='password'/>
+        <result property='email' column='email'/>
+        <result property='role' column='role_id'/>
+    </resultMap>
+
+    <insert id='insert' parameterType='User' useGeneratedKeys='true' keyProperty='id'>
+        INSERT INTO "user" (login, password, email, role_id)
+        VALUES(#{login}, #{password}, #{email}, #{role})
+    </insert>
+
+    <select id='findById' parameterType='long' resultType='User'>
+        SELECT
+            id as id,
+            login as login,
+            password,
+            email as email,
+            role_id as role
+        FROM "user"
+        WHERE id = #{id}
+    </select>
+
+    <update id='update' parameterType='User'>
+        UPDATE "user"
+        SET
+            login = #{login},
+            password = #{password},
+            email = #{email},
+            role_id = #{role}
+        WHERE id = #{id}
+    </update>
+
+    <delete id='delete' parameterType='long'>
+        DELETE FROM "user" WHERE id = #{id}
+    </delete>
+
+</mapper>
