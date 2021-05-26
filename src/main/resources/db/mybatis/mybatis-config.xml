@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="db/mybatis/mybatis.properties"/>
+    <typeAliases>
+        <typeAlias alias = "User" type = "com.epam.university.commission.domain.User"/>
+    </typeAliases>
+
+    <typeHandlers>
+        <typeHandler handler="com.epam.university.commission.handler.RoleTypeHandler"
+                     javaType="com.epam.university.commission.domain.Role"/>
+    </typeHandlers>
+
+    <environments default = "development">
+        <environment id = "development">
+            <transactionManager type = "JDBC"/>
+
+            <dataSource type = "POOLED">
+                <property name = "driver" value = "${databaseDriverClassName}"/>
+                <property name = "url" value = "${databaseUrlMain}"/>
+                <property name = "username" value = "${databaseUsernameMain}"/>
+                <property name = "password" value = "${databasePasswordMain}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource = "db/mybatis/UserMapper.xml"/>
+    </mappers>
+
+</configuration>
