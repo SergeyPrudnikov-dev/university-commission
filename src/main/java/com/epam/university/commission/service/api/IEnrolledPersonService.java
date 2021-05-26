@@ -12,25 +12,27 @@ import com.epam.university.commission.domain.EnrolledPerson;
  * @author Siarhei Prudnikau1
  */
 public interface IEnrolledPersonService {
+
     /**
-     * Finds and returns an object with the given identifier.
+     * Finds and returns an {@link EnrolledPerson} with the given identifier.
      *
-     * @param id of the entity.
+     * @param id is the identifier of the {@link EnrolledPerson}.
      * @return EnrolledPerson - entity.
      */
     EnrolledPerson findById(Long id);
 
     /**
-     * Saves an object with the given identifier.
+     * Saves a given {@link EnrolledPerson}.
      *
-     * @param enrolledPerson of the entity.
+     * @param enrolledPerson which is saved.
      */
     void save(EnrolledPerson enrolledPerson);
 
     /**
-     * Deletes an object with the given identifier.
+     * Deletes an {@link EnrolledPerson} with the given identifier.
      *
-     * @param id of the entity.
+     * @param id is the identifier of the {@link EnrolledPerson}.
      */
     void delete(Long id);
 }
+

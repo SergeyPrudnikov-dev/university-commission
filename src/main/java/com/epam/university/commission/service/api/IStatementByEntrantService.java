@@ -13,24 +13,24 @@ import com.epam.university.commission.domain.StatementByEntrant;
  */
 public interface IStatementByEntrantService {
     /**
-     * Finds and returns an object with the given identifier.
+     * Finds and returns an {@link StatementByEntrant} with the given identifier.
      *
-     * @param id of the entity.
+     * @param id is the identifier of the {@link StatementByEntrant}.
      * @return StatementByEntrant - entity.
      */
     StatementByEntrant findById(Long id);
 
     /**
-     * Saves an object with the given identifier.
+     * Saves a given {@link StatementByEntrant}.
      *
-     * @param statementByEntrant of the entity.
+     * @param statementByEntrant which is saved.
      */
     void save(StatementByEntrant statementByEntrant);
 
     /**
-     * Deletes an object with the given identifier.
+     * Deletes an {@link StatementByEntrant} with the given identifier.
      *
-     * @param id of the entity.
+     * @param id is the identifier of the {@link StatementByEntrant}.
      */
     void delete(Long id);
 }

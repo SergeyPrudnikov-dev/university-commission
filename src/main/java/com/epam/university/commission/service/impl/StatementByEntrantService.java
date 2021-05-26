@@ -5,7 +5,7 @@ import com.epam.university.commission.repository.api.IStatementByEntrantReposito
 import com.epam.university.commission.service.api.IStatementByEntrantService;
 
 /**
- * This is a method for finding an entity {@link StatementByEntrant} in a database by id.
+ * This service contains the basic methods of the service layer for {@link StatementByEntrant} entities.
  * <p/>
  * University-commission 2021  epam.com
  * <p/>
@@ -24,15 +24,21 @@ public class StatementByEntrantService implements IStatementByEntrantService {
         this.statementByEntrantRepository = statementByEntrantRepository;
     }
 
+    /**
+     * Finds and returns an {@link StatementByEntrant} with the given identifier.
+     *
+     * @param id is the identifier of the {@link StatementByEntrant}.
+     * @return StatementByEntrant - entity.
+     */
     @Override
     public StatementByEntrant findById(Long id) {
         return statementByEntrantRepository.read(id);
     }
 
     /**
-     * Saves an object with the given identifier.
+     * Saves a given {@link StatementByEntrant}.
      *
-     * @param statementByEntrant of the entity.
+     * @param statementByEntrant which is saved.
      */
     @Override
     public void save(StatementByEntrant statementByEntrant) {
@@ -47,9 +53,9 @@ public class StatementByEntrantService implements IStatementByEntrantService {
     }
 
     /**
-     * Deletes an object with the given identifier.
+     * Deletes an {@link StatementByEntrant} with the given identifier.
      *
-     * @param id of the entity.
+     * @param id is the identifier of the {@link StatementByEntrant}.
      */
     @Override
     public void delete(Long id) {

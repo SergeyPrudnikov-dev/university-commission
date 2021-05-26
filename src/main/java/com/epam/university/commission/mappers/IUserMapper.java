@@ -13,18 +13,18 @@ import com.epam.university.commission.domain.User;
  */
 public interface IUserMapper {
     /**
-     * Inserts User to the database.
+     * Inserts {@link User} to the database.
      *
-     * @param user - {@link User} that is being inserted into the database.
-     * @return id user.
+     * @param user which is inserted into the database.
+     * @return id is the identifier of the {@link User}.
      */
     Long insert(User user);
 
     /**
-     * Finds and returns an user with the given identifier.
+     * Finds and returns an {@link User} with the given identifier.
      *
-     * @param id - user id.
-     * @return User - {@link User}.
+     * @param id is the identifier of the {@link User}.
+     * @return User.
      */
     User findById(Long id);
 
@@ -36,9 +36,9 @@ public interface IUserMapper {
     void update(User user);
 
     /**
-     * Deletes {@link User} with the given id.
+     * Deletes {@link User} with the given identifier.
      *
-     * @param userId - id of User.
+     * @param userId is the identifier of the {@link User}.
      */
     void delete(Long userId);
 }

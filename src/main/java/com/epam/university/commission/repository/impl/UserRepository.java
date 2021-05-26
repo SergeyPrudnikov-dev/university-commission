@@ -16,12 +16,11 @@ import org.apache.ibatis.session.SqlSession;
  * @author Siarhei Prudnikau1
  */
 public class UserRepository implements IUserRepository {
-
     /**
      * Creates a given {@link User}.
      *
      * @param user which is created.
-     * @return id of the user.
+     * @return id is the identifier of the {@link User}.
      */
     @Override
     public Long create(User user) {
@@ -36,7 +35,7 @@ public class UserRepository implements IUserRepository {
     /**
      * Finds and returns an {@link User} with the given identifier.
      *
-     * @param userId of the user.
+     * @param userId is the identifier of the {@link User}.
      * @return User - entity.
      */
     @Override
@@ -62,9 +61,9 @@ public class UserRepository implements IUserRepository {
     }
 
     /**
-     * Deletes {@link User} with the given id.
+     * Deletes {@link User} with the given identifier.
      *
-     * @param userId - id of the user.
+     * @param userId is the identifier of the {@link User}.
      */
     @Override
     public void delete(Long userId) {

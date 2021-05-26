@@ -13,24 +13,24 @@ import com.epam.university.commission.domain.Faculty;
  */
 public interface IFacultyService {
     /**
-     * Finds and returns an object with the given identifier.
+     * Finds and returns an {@link Faculty} with the given identifier.
      *
-     * @param id of the entity.
+     * @param id is the identifier of the {@link Faculty}.
      * @return Faculty - entity.
      */
     Faculty findById(Long id);
 
     /**
-     * Saves an object with the given identifier.
+     * Saves a given {@link Faculty}.
      *
-     * @param faculty of the entity.
+     * @param faculty which is saved.
      */
     void save(Faculty faculty);
 
     /**
-     * Deletes an object with the given identifier.
+     * Deletes an {@link Faculty} with the given identifier.
      *
-     * @param id of the entity.
+     * @param id is the identifier of the {@link Faculty}.
      */
     void delete(Long id);
 }

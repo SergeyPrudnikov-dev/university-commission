@@ -13,24 +13,24 @@ import com.epam.university.commission.domain.User;
  */
 public interface IUserService {
     /**
-     * Finds and returns an object with the given identifier.
+     * Finds and returns an {@link User} with the given identifier.
      *
-     * @param id of the entity.
+     * @param id is the identifier of the {@link User}.
      * @return User - entity.
      */
     User findById(Long id);
 
     /**
-     * Saves an object with the given identifier.
+     * Saves a given {@link User}.
      *
-     * @param user of the entity.
+     * @param user which is saved.
      */
     void save(User user);
 
     /**
-     * Deletes an object with the given identifier.
+     * Deletes an {@link User} with the given identifier.
      *
-     * @param id of the entity.
+     * @param id is the identifier of the {@link User}.
      */
     void delete(Long id);
 }

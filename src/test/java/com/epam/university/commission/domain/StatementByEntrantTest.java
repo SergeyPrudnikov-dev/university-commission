@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  * Test to verify the functionality of the StatementByEntrant.
@@ -31,7 +31,7 @@ public class StatementByEntrantTest {
     private static final int EXPECTED_SUBJECT_SCORE_1 = 65;
     private static final int EXPECTED_SUBJECT_SCORE_2 = 99;
     private static final int EXPECTED_SUBJECT_SCORE_3 = 56;
-    private static final Date EXPECTED_DATE = new Date();
+    private static final LocalDate EXPECTED_DATE = LocalDate.now();
     private static final long EXPECTED_USER_ID = 2352;
     private static final long EXPECTED_ID = 13298;
 
@@ -44,7 +44,7 @@ public class StatementByEntrantTest {
     private static final int OTHER_SUBJECT_SCORE_1 = 77;
     private static final int OTHER_SUBJECT_SCORE_2 = 32;
     private static final int OTHER_SUBJECT_SCORE_3 = 78;
-    private static final Date OTHER_DATE = new Date();
+    private static final LocalDate OTHER_DATE = LocalDate.now();
     private static final long OTHER_USER_ID = 12455;
     private static final long OTHER_ID = 5432;
 
