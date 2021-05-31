@@ -5,7 +5,7 @@ import com.epam.university.commission.repository.api.IUserRepository;
 import com.epam.university.commission.service.api.IUserService;
 
 /**
- * This is a method for finding an entity {@link User} in a database by id.
+ * This service contains the basic methods of the service layer for {@link User} entities.
  * <p/>
  * University-commission 2021  epam.com
  * <p/>
@@ -24,15 +24,21 @@ public class UserService implements IUserService {
         this.userRepository = userRepository;
     }
 
+    /**
+     * Finds and returns an {@link User} with the given identifier.
+     *
+     * @param id is the identifier of the {@link User}.
+     * @return User - entity.
+     */
     @Override
     public User findById(Long id) {
         return userRepository.read(id);
     }
 
     /**
-     * Updates or creates this "user" in the database. Checks the uniqueness of the "login" in the database.
+     * Saves a given {@link User}.
      *
-     * @param user is an object that is saved in the database.
+     * @param user which is saved.
      */
     @Override
     public void save(User user) {
@@ -46,6 +52,11 @@ public class UserService implements IUserService {
         }
     }
 
+    /**
+     * Deletes an {@link User} with the given identifier.
+     *
+     * @param id is the identifier of the {@link User}.
+     */
     @Override
     public void delete(Long id) {
         userRepository.delete(id);

@@ -5,7 +5,7 @@ import com.epam.university.commission.repository.api.IEnrolledPersonRepository;
 import com.epam.university.commission.service.api.IEnrolledPersonService;
 
 /**
- * This is a method for finding an entity {@link EnrolledPerson} in a database by id.
+ * This service contains the basic methods of the service layer for {@link EnrolledPerson} entities.
  * <p/>
  * University-commission 2021  epam.com
  * <p/>
@@ -24,15 +24,21 @@ public class EnrolledPersonService implements IEnrolledPersonService {
         this.enrolledPersonRepository = enrolledPersonRepository;
     }
 
+    /**
+     * Finds and returns an {@link EnrolledPerson} with the given identifier.
+     *
+     * @param id is the identifier of the {@link EnrolledPerson}.
+     * @return EnrolledPerson - entity.
+     */
     @Override
     public EnrolledPerson findById(Long id) {
         return enrolledPersonRepository.read(id);
     }
 
     /**
-     * Saves an object with the given identifier.
+     * Saves a given {@link EnrolledPerson}.
      *
-     * @param enrolledPerson of the entity.
+     * @param enrolledPerson which is saved.
      */
     @Override
     public void save(EnrolledPerson enrolledPerson) {
@@ -47,9 +53,9 @@ public class EnrolledPersonService implements IEnrolledPersonService {
     }
 
     /**
-     * Deletes an object with the given identifier.
+     * Deletes an {@link EnrolledPerson} with the given identifier.
      *
-     * @param id of the entity.
+     * @param id is the identifier of the {@link EnrolledPerson}.
      */
     @Override
     public void delete(Long id) {

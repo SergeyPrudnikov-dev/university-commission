@@ -20,15 +20,12 @@ import org.junit.jupiter.api.Test;
  * @author Siarhei Prudnikau1
  */
 class UserRepositoryIntegrationTest {
-
     private static final String USER_EMAIL = "test_email@gmail.com";
     private static final String USER_LOGIN = "test_login";
     private static final String USER_PASSWORD = "test_password";
-
     private static final String USER_UPDATED_EMAIL = "test_updated@gmail.com";
     private static final String USER_UPDATED_LOGIN = "test_updated_login";
     private static final String USER_UPDATED_PASSWORD = "test_updated_password";
-    
     private User user;
     private UserRepository userRepository;
 
@@ -48,18 +45,15 @@ class UserRepositoryIntegrationTest {
     void testCreateUser() {
         User expectedUser = buildUser();
         userRepository.create(expectedUser);
-
         User actualUser = userRepository.read(expectedUser.getId());
         assertNotNull(actualUser);
         assertEquals(expectedUser, actualUser);
-
         userRepository.delete(expectedUser.getId());
     }
 
     @Test
     void testReadUserById() {
         User actualUser = userRepository.read(user.getId());
-
         assertNotNull(actualUser);
         assertEquals(USER_LOGIN, actualUser.getLogin());
         assertEquals(USER_EMAIL, actualUser.getEmail());
@@ -74,7 +68,6 @@ class UserRepositoryIntegrationTest {
         user.setPassword(USER_UPDATED_PASSWORD);
         user.setRole(Role.ADMIN);
         userRepository.update(user);
-
         User actualUser = userRepository.read(user.getId());
         assertEquals(user, actualUser);
     }
@@ -82,7 +75,6 @@ class UserRepositoryIntegrationTest {
     @Test
     void testDeleteUser() {
         userRepository.delete(user.getId());
-
         User actualUser = userRepository.read(user.getId());
         assertNull(actualUser);
     }
@@ -95,5 +87,4 @@ class UserRepositoryIntegrationTest {
         newUser.setRole(Role.ENTRANT);
         return newUser;
     }
-
 }

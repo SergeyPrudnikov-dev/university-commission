@@ -5,7 +5,7 @@ import com.epam.university.commission.repository.api.IFacultyRepository;
 import com.epam.university.commission.service.api.IFacultyService;
 
 /**
- * This is a method for finding an entity {@link Faculty} in a database by id.
+ * This service contains the basic methods of the service layer for {@link Faculty} entities.
  * <p/>
  * University-commission 2021  epam.com
  * <p/>
@@ -24,15 +24,21 @@ public class FacultyService implements IFacultyService {
         this.facultyRepository = facultyRepository;
     }
 
+    /**
+     * Finds and returns an {@link Faculty} with the given identifier.
+     *
+     * @param id is the identifier of the {@link Faculty}.
+     * @return Faculty - entity.
+     */
     @Override
     public Faculty findById(Long id) {
         return facultyRepository.read(id);
     }
 
     /**
-     * Saves an object with the given identifier.
+     * Saves a given {@link Faculty}.
      *
-     * @param faculty of the entity.
+     * @param faculty which is saved.
      */
     @Override
     public void save(Faculty faculty) {
@@ -47,9 +53,9 @@ public class FacultyService implements IFacultyService {
     }
 
     /**
-     * Deletes an object with the given identifier.
+     * Deletes an {@link Faculty} with the given identifier.
      *
-     * @param id of the entity.
+     * @param id is the identifier of the {@link Faculty}.
      */
     @Override
     public void delete(Long id) {

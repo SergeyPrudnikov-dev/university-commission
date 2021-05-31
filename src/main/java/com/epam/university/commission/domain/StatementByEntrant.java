@@ -1,6 +1,6 @@
 package com.epam.university.commission.domain;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 /**
@@ -17,7 +17,7 @@ public class StatementByEntrant extends Entity {
 
     private static final long serialVersionUID = -6271859875463148364L;
     private Faculty faculty;
-    private Date date;
+    private LocalDate date;
     private String lastName;
     private String firstName;
     private String patronymic;
@@ -100,13 +100,9 @@ public class StatementByEntrant extends Entity {
         this.subjectScore3 = subjectScore3;
     }
 
-    public Date getDate() {
-        return date != null ? new Date(date.getTime()) : null;
-    }
+    public LocalDate getDate() { return date; }
 
-    public void setDate(Date date) {
-        this.date = date != null ? new Date(date.getTime()) : null;
-    }
+    public void setDate(LocalDate date) { this.date = date; }
 
     public long getUserId() {
         return userId;

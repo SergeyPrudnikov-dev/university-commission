@@ -18,15 +18,15 @@ public interface ICrudRepository<ID, T extends Entity> {
      * Creates a given entity.
      *
      * @param entity which is created.
-     * @return id of the entity.
+     * @return id is the identifier of the entity.
      */
     ID create(T entity);
 
     /**
      * Finds and returns an object with the given identifier.
      *
-     * @param id of the entity.
-     * @return T - entity.
+     * @param id is the identifier of the entity.
+     * @return T is the type of entity.
      */
     T read(ID id);
 
@@ -38,9 +38,9 @@ public interface ICrudRepository<ID, T extends Entity> {
     void update(T entity);
 
     /**
-     * Deletes the entity with the given id.
+     * Deletes the entity with the given identifier.
      *
-     * @param id of the entity.
+     * @param id is the identifier of the entity.
      */
     void delete(ID id);
 }

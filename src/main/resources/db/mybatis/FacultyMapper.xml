@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+        'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+
+<mapper namespace='com.epam.university.commission.mappers.IFacultyMapper'>
+    <resultMap type='Faculty' id='FacultyResult'>
+        <id property='id' column='id'/>
+        <result property='name' column='name'/>
+        <result property='recruitmentPlan' column='recruitment_plan'/>
+        <result property='certificate' column='certificate'/>
+        <result property='subject1' column='subject_1'/>
+        <result property='subject2' column='subject_2'/>
+        <result property='subject3' column='subject_3'/>
+    </resultMap>
+
+    <insert id='insert' parameterType='Faculty' useGeneratedKeys='true' keyProperty='id'>
+        INSERT INTO "faculty" (name, recruitment_plan, certificate, subject_1, subject_2, subject_3)
+        VALUES(#{name}, #{recruitmentPlan}, #{certificate}, #{subject1}, #{subject2}, #{subject3})
+    </insert>
+
+    <select id='findById' parameterType='long' resultType='Faculty'>
+        SELECT
+            id as id,
+            name as name,
+            recruitment_plan as recruitmentPlan,
+            certificate as certificate,
+            subject_1 as subject1,
+            subject_2 as subject2,
+            subject_3 as subject3
+        FROM "faculty"
+        WHERE id = #{id}
+    </select>
+
+    <update id='update' parameterType='Faculty'>
+        UPDATE "faculty"
+        SET
+            name = #{name},
+            recruitment_plan = #{recruitmentPlan},
+            certificate = #{certificate},
+            subject_1 = #{subject1},
+            subject_2 = #{subject2},
+            subject_3 = #{subject3}
+        WHERE id = #{id}
+    </update>
+
+    <delete id='delete' parameterType='long'>
+        DELETE FROM "faculty" WHERE id = #{id}
+    </delete>
+
+</mapper>
