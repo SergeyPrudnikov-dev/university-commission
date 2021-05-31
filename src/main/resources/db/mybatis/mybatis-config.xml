@@ -6,6 +6,9 @@
     <properties resource="db/mybatis/mybatis.properties"/>
     <typeAliases>
         <typeAlias alias = "User" type = "com.epam.university.commission.domain.User"/>
+        <typeAlias alias = "Faculty" type = "com.epam.university.commission.domain.Faculty"/>
+        <typeAlias alias = "StatementByEntrant" type = "com.epam.university.commission.domain.StatementByEntrant"/>
+        <typeAlias alias = "EnrolledPerson" type = "com.epam.university.commission.domain.EnrolledPerson"/>
     </typeAliases>
 
     <typeHandlers>
@@ -28,6 +31,9 @@
 
     <mappers>
         <mapper resource = "db/mybatis/UserMapper.xml"/>
+        <mapper resource = "db/mybatis/FacultyMapper.xml"/>
+        <mapper resource = "db/mybatis/StatementByEntrantMapper.xml"/>
+        <mapper resource = "db/mybatis/EnrolledPersonMapper.xml"/>
     </mappers>
 
 </configuration>

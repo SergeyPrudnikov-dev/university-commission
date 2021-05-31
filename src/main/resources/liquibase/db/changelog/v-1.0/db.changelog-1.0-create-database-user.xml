@@ -5,15 +5,14 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
-    <changeSet id="2021-05-06-01" author="Siarhei" runInTransaction="false">
-        <comment>Database uc creation.</comment>
+    <changeSet id="2021-05-01-00" author="Siarhei Prudnikau (siarhei_prudnikau1@epam.com)">
+        <comment>Create user admin_uc.</comment>
         <sql>
-            DROP DATABASE IF EXISTS uc;
-            CREATE DATABASE uc WITH OWNER admin_uc;
+            CREATE ROLE admin_uc WITH LOGIN ENCRYPTED PASSWORD '12345';
         </sql>
         <rollback>
             <sql>
-                DROP DATABASE IF EXISTS uc;
+                DROP USER IF EXISTS admin_uc;
             </sql>
         </rollback>
     </changeSet>

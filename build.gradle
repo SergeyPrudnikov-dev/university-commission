@@ -8,12 +8,12 @@
 buildscript {
     repositories {
         maven {
-            url 'https://plugins.gradle.org/m2/'
+            url "https://plugins.gradle.org/m2/"
         }
         mavenCentral()
     }
     dependencies {
-        classpath 'org.liquibase:liquibase-gradle-plugin:2.0.4'
+        classpath "org.liquibase:liquibase-gradle-plugin:${liquibaseGradlePluginVersion}"
     }
 }
 
@@ -32,15 +32,17 @@ test {
 }
 
 dependencies {
-    implementation group: 'com.puppycrawl.tools', name: 'checkstyle', version: '6.1.1'
-    implementation group: 'org.mybatis', name: 'mybatis', version: '3.4.6'
-    implementation 'org.postgresql:postgresql:42.0.0'
-    implementation 'org.apache.commons:commons-lang3:3.12.0'
-    liquibaseRuntime 'org.liquibase:liquibase-core:3.8.1'
-    liquibaseRuntime 'org.postgresql:postgresql:42.0.0'
-    testImplementation group: 'org.easymock', name: 'easymock', version: '4.2'
-    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.7.0'
-    testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.7.0')
+    implementation "com.puppycrawl.tools:checkstyle:${checkStyleVersion}"
+    implementation "org.mybatis:mybatis:${myBatisVersion}"
+    implementation "org.postgresql:postgresql:${postgreSQLVersion}"
+    implementation "org.apache.commons:commons-lang3:${commonsLang3Version}"
+
+    liquibaseRuntime "org.liquibase:liquibase-core:${liquibaseCoreVersion}"
+    liquibaseRuntime "org.postgresql:postgresql:${postgreSQLVersion}"
+
+    testImplementation "org.easymock:easymock:${easyMockVersion}"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitJupiterApiVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitJupiterEngineVersion}"
 }
 
 mainClassName = 'com.epam.university.commission.Application'
@@ -48,28 +50,28 @@ mainClassName = 'com.epam.university.commission.Application'
 liquibase {
     activities {
         init {
-            changeLogFile('src/main/resources/liquibase/db/changelog/changelog-init.xml')
-            url("${databaseUrlInit}")
-            username("${databaseUsernameInit}")
-            password("${databasePasswordInit}")
+            changeLogFile"${changeLogFilePathInit}"
+            url"${databaseUrlInit}"
+            username"${databaseUsernameInit}"
+            password"${databasePasswordInit}"
         }
         main {
-            changeLogFile('src/main/resources/liquibase/db/changelog/changelog-main.xml')
-            url("${databaseUrlMain}")
-            username("${databaseUsernameMain}")
-            password("${databasePasswordMain}")
+            changeLogFile"${changeLogFilePathMain}"
+            url"${databaseUrlMain}"
+            username"${databaseUsernameMain}"
+            password"${databasePasswordMain}"
         }
     }
-    runList = 'init, main'
+    runList = "init, main"
 }
 
 findbugs {
     ignoreFailures = false
-    toolVersion = '3.0.1'
+    toolVersion = "${findbugsVersion}"
     sourceSets = [sourceSets.main]
     excludeFilter = file("$rootProject.projectDir/tools/findbugs/excludeFilter.xml")
     reportsDir = file("$project.buildDir/reports/findbugs")
-    effort = 'max'
+    effort = "max"
 }
 
 tasks.withType(FindBugs) {
@@ -80,8 +82,8 @@ tasks.withType(FindBugs) {
 }
 
 checkstyle {
-    toolVersion '6.1.1'
-    configDir = file("$rootProject.projectDir/tools/codeanalysis/")
+    toolVersion "${checkStyleVersion}"
+    configDir = file"$rootProject.projectDir/tools/codeanalysis/"
 }
 
 checkstyleMain {
@@ -104,29 +106,3 @@ group 'university-commission'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
-
-task message1 {
-    doLast {
-        println info + ' ' + projectName
-    }
-}
-
-task message2 {
-    doLast {
-        println 'Message from task'
-    }
-}
-
-task message3 {
-    doFirst {
-        println myArg + 'Message from task'
-    }
-}
-/*
- * gradle message3 -PmyArg="Message from console!"
- */
-
-task allMessages(dependsOn: [message1, message2, message3])
-/*
- *  gradle allMessages -PmyArg="Message from console!"
- */

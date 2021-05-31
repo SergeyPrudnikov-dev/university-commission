@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
-    <changeSet id="2021-05-07-00" author="Siarhei Prudnikau (siarhei_prudnikau1@epam.com)">
+    <changeSet id="2021-05-28-00" author="Siarhei Prudnikau (siarhei_prudnikau1@epam.com)">
         <comment>Create table 'enrolled_person'.</comment>
         <createTable tableName="enrolled_person">
             <column name="id" type="bigint">
@@ -25,26 +25,28 @@
             </column>
         </createTable>
         <rollback>
-            <dropTable tableName="faculty"/>
+            <dropTable tableName="enrolled_person"/>
         </rollback>
     </changeSet>
 
-    <changeSet id="2021-05-07-01" author="Siarhei Prudnikau (siarhei_prudnikau1@epam.com)">
+    <changeSet id="2021-05-28-01" author="Siarhei Prudnikau (siarhei_prudnikau1@epam.com)">
         <addUniqueConstraint
                 columnNames="id, statement_id"
                 tableName="enrolled_person"/>
+        <rollback/>
     </changeSet>
 
-    <changeSet id="2021-05-07-02" author="Siarhei Prudnikau (siarhei_prudnikau1@epam.com)">
+    <changeSet id="2021-05-28-02" author="Siarhei Prudnikau (siarhei_prudnikau1@epam.com)">
         <addAutoIncrement
                 columnDataType="bigint"
                 columnName="id"
                 incrementBy="1"
                 startWith="1"
                 tableName="enrolled_person"/>
+        <rollback/>
     </changeSet>
 
-    <changeSet id="2021-05-07-03" author="Siarhei Prudnikau (siarhei_prudnikau1@epam.com)">
+    <changeSet id="2021-05-28-03" author="Siarhei Prudnikau (siarhei_prudnikau1@epam.com)">
         <addForeignKeyConstraint
                 baseColumnNames="faculty_id"
                 baseTableCatalogName="uc"
@@ -55,9 +57,10 @@
                 referencedTableCatalogName="uc"
                 referencedTableName="faculty"
                 referencedTableSchemaName="public"/>
+        <rollback/>
     </changeSet>
 
-    <changeSet id="2021-05-12-00" author="Siarhei Prudnikau (siarhei_prudnikau1@epam.com)">
+    <changeSet id="2021-05-28-04" author="Siarhei Prudnikau (siarhei_prudnikau1@epam.com)">
         <addForeignKeyConstraint
                 baseColumnNames="statement_id"
                 baseTableCatalogName="uc"
@@ -68,6 +71,7 @@
                 referencedTableCatalogName="uc"
                 referencedTableName="statement"
                 referencedTableSchemaName="public"/>
+        <rollback/>
     </changeSet>
 </databaseChangeLog>
 
