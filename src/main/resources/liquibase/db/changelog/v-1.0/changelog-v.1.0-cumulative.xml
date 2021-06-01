@@ -5,9 +5,10 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
+    <include file="src/main/resources/liquibase/db/changelog/v-1.0/db.changelog-1.0-create-database-user.xml"/>
+    <include file="src/main/resources/liquibase/db/changelog/v-1.0/db.changelog-1.0-create-database.xml"/>
+
     <changeSet id="2021-05-06-00" author="Siarhei Prudnikau (siarhei_prudnikau1@epam.com)">
         <tagDatabase tag="init-database"/>
     </changeSet>
-
-    <include file="src/main/resources/liquibase/db/changelog/v-1.0/db.changelog-1.0-create-database.xml"/>
 </databaseChangeLog>

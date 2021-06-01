@@ -33,6 +33,7 @@
         <addUniqueConstraint
                 columnNames="id, login, email"
                 tableName="user"/>
+        <rollback/>
     </changeSet>
 
     <changeSet id="2021-05-07-01" author="Siarhei Prudnikau (siarhei_prudnikau1@epam.com)">
@@ -42,5 +43,6 @@
                 incrementBy="1"
                 startWith="1"
                 tableName="user"/>
+        <rollback/>
     </changeSet>
 </databaseChangeLog>

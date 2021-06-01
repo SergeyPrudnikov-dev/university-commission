@@ -54,6 +54,7 @@
         <addUniqueConstraint
                 columnNames="id, passport_id, user_id"
                 tableName="statement"/>
+        <rollback/>
     </changeSet>
 
     <changeSet id="2021-05-12-03" author="Siarhei Prudnikau (siarhei_prudnikau1@epam.com)">
@@ -63,6 +64,7 @@
                 incrementBy="1"
                 startWith="1"
                 tableName="statement"/>
+        <rollback/>
     </changeSet>
 
     <changeSet id="2021-05-12-04" author="Siarhei Prudnikau (siarhei_prudnikau1@epam.com)">
@@ -76,6 +78,7 @@
                 referencedTableCatalogName="uc"
                 referencedTableName="faculty"
                 referencedTableSchemaName="public"/>
+        <rollback/>
     </changeSet>
 
     <changeSet id="2021-05-12-05" author="Siarhei Prudnikau (siarhei_prudnikau1@epam.com)">
@@ -89,6 +92,7 @@
                 referencedTableCatalogName="uc"
                 referencedTableName="user"
                 referencedTableSchemaName="public"/>
+        <rollback/>
     </changeSet>
 </databaseChangeLog>
 
