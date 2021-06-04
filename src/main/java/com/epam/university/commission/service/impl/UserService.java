@@ -1,8 +1,14 @@
 package com.epam.university.commission.service.impl;
 
 import com.epam.university.commission.domain.User;
+import com.epam.university.commission.exception.DataChangesException;
 import com.epam.university.commission.repository.api.IUserRepository;
 import com.epam.university.commission.service.api.IUserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 /**
  * This service contains the basic methods of the service layer for {@link User} entities.
@@ -13,6 +19,7 @@ import com.epam.university.commission.service.api.IUserService;
  *
  * @author Siarhei Prudnikau1
  */
+@Service
 public class UserService implements IUserService {
     private IUserRepository userRepository;
 
@@ -20,6 +27,7 @@ public class UserService implements IUserService {
         return userRepository;
     }
 
+    @Autowired
     public void setUserRepository(IUserRepository userRepository) {
         this.userRepository = userRepository;
     }
@@ -32,7 +40,8 @@ public class UserService implements IUserService {
      */
     @Override
     public User findById(Long id) {
-        return userRepository.read(id);
+        return Optional.ofNullable(userRepository.read(id))
+                .orElseThrow(() -> new NoSuchElementException(String.format("User with Id %d not found.", id)));
     }
 
     /**
@@ -46,9 +55,15 @@ public class UserService implements IUserService {
             User storedUser = userRepository.read(user.getId());
             if (storedUser != null) {
                 userRepository.update(user);
+                if (!userRepository.read(user.getId()).equals(user)) {
+                    new DataChangesException("The user was not updated.");
+                }
             }
         } else {
             Long id = userRepository.create(user);
+            if (id == null) {
+                throw new DataChangesException("The user was not created.");
+            }
         }
     }
 
@@ -59,6 +74,8 @@ public class UserService implements IUserService {
      */
     @Override
     public void delete(Long id) {
+        Optional.ofNullable(userRepository.read(id))
+                .orElseThrow(() -> new NoSuchElementException(String.format("User with Id %d not found.", id)));
         userRepository.delete(id);
     }
 }

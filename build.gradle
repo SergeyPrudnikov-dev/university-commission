@@ -37,16 +37,19 @@ test {
 dependencies {
     implementation "com.puppycrawl.tools:checkstyle:${checkStyleVersion}"
     implementation "org.mybatis:mybatis:${myBatisVersion}"
+    implementation "org.mybatis.spring.boot:mybatis-spring-boot-starter:${myBatisspringBootStarterVersion}"
     implementation "org.postgresql:postgresql:${postgreSQLVersion}"
     implementation "org.apache.commons:commons-lang3:${commonsLang3Version}"
     implementation 'org.springframework.boot:spring-boot-starter'
-    
+    implementation "org.springframework.boot:spring-boot-starter-web"
+
     liquibaseRuntime "org.liquibase:liquibase-core:${liquibaseCoreVersion}"
     liquibaseRuntime "org.postgresql:postgresql:${postgreSQLVersion}"
 
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation "org.springframework.boot:spring-boot-starter-test"
     testImplementation "org.easymock:easymock:${easyMockVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitJupiterApiVersion}"
+    testRuntimeOnly "org.junit.platform:junit-platform-commons:${junitPlatformCommonsVersion}"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitJupiterEngineVersion}"
 }
 
@@ -55,16 +58,16 @@ mainClassName = 'com.epam.university.commission.Application'
 liquibase {
     activities {
         init {
-            changeLogFile"${changeLogFilePathInit}"
-            url"${databaseUrlInit}"
-            username"${databaseUsernameInit}"
-            password"${databasePasswordInit}"
+            changeLogFile "${changeLogFilePathInit}"
+            url "${databaseUrlInit}"
+            username "${databaseUsernameInit}"
+            password "${databasePasswordInit}"
         }
         main {
-            changeLogFile"${changeLogFilePathMain}"
-            url"${databaseUrlMain}"
-            username"${databaseUsernameMain}"
-            password"${databasePasswordMain}"
+            changeLogFile "${changeLogFilePathMain}"
+            url "${databaseUrlMain}"
+            username "${databaseUsernameMain}"
+            password "${databasePasswordMain}"
         }
     }
     runList = "init, main"
@@ -88,7 +91,7 @@ tasks.withType(FindBugs) {
 
 checkstyle {
     toolVersion "${checkStyleVersion}"
-    configDir = file"$rootProject.projectDir/tools/codeanalysis/"
+    configDir = file "$rootProject.projectDir/tools/codeanalysis/"
 }
 
 checkstyleMain {
