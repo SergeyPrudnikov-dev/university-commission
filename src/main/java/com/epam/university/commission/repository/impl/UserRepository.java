@@ -5,6 +5,7 @@ import com.epam.university.commission.mappers.IUserMapper;
 import com.epam.university.commission.repository.api.IUserRepository;
 import com.epam.university.commission.util.MyBatisUtil;
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
 
 /**
  * Repository to operate with {@link User}.
@@ -15,6 +16,7 @@ import org.apache.ibatis.session.SqlSession;
  *
  * @author Siarhei Prudnikau1
  */
+@Repository
 public class UserRepository implements IUserRepository {
     /**
      * Creates a given {@link User}.

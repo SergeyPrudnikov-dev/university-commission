@@ -1,6 +1,10 @@
 package com.epam.university.commission.domain;
 
 import java.util.Objects;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * The data of this class is used to log into the application.
@@ -13,9 +17,20 @@ import java.util.Objects;
  */
 public class User extends Entity {
     private static final long serialVersionUID = 5881422459102994885L;
+
+    @NotNull(message = "Role is mandatory.")
     private Role role;
+
+    @NotBlank(message = "Login is mandatory.")
+    @Size(max = 50, message = "Login must be no more than 50 characters.")
     private String login;
+
+    @NotBlank(message = "Password is mandatory.")
+    @Size(max = 50, message = "Password must be no more than 50 characters.")
     private String password;
+
+    @NotBlank(message = "Email is mandatory.")
+    @Email(message = "Email should be valid")
     private String email;
 
     public String getLogin() {
